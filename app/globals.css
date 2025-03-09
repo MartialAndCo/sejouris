@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 212 100% 20%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #eef5ff 0%, #f5f7fa 100%);
+}
+
+.feature-icon {
+  @apply flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary;
+}
+
+/* Hide default scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.font-serif {
+  font-family: var(--font-playfair-display), serif;
+}
+
+/* Nouveaux dégradés cohérents pour tout le site */
+.gradient-primary {
+  background: linear-gradient(
+    180deg,
+    rgba(239, 246, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.9) 30%,
+    rgba(239, 246, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+}
+
+.gradient-secondary {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(239, 246, 255, 0.7) 30%,
+    rgba(255, 255, 255, 0.8) 60%,
+    rgba(239, 246, 255, 0.6) 100%
+  );
+}
+
+.gradient-accent {
+  background: linear-gradient(
+    180deg,
+    rgba(219, 234, 254, 0.3) 0%,
+    rgba(239, 246, 255, 0.5) 25%,
+    rgba(219, 234, 254, 0.4) 50%,
+    rgba(239, 246, 255, 0.6) 75%,
+    rgba(219, 234, 254, 0.3) 100%
+  );
+}
+
+.gradient-background {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 246, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(239, 246, 255, 0.4) 100%
+  );
+  min-height: 100vh;
+}
+
+/* Animation de dégradé subtile */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-animated {
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Éliminer les espaces entre sections */
+section {
+  margin-bottom: -1px;
+  padding-bottom: calc(1rem + 1px);
+}
+
+/* Assurer une transition fluide entre les dégradés */
+section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: transparent;
+  z-index: 2;
+}
+
+/* Styles pour la page de politique de confidentialité */
+.prose {
+  @apply text-gray-700;
+}
+
+.prose h2 {
+  @apply text-primary font-bold text-2xl mt-8 mb-4;
+}
+
+.prose h3 {
+  @apply text-primary font-semibold text-xl mt-6 mb-3;
+}
+
+.prose p {
+  @apply mb-4 leading-relaxed;
+}
+
+.prose ul {
+  @apply list-disc pl-6 mb-4 space-y-2;
+}
+
+.prose a {
+  @apply text-primary hover:underline;
+}
+
+.prose .lead {
+  @apply text-lg font-medium text-gray-600;
+}
+
