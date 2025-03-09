@@ -1,13 +1,16 @@
-let userConfig = undefined;
-try {
-  userConfig = await import("./v0-user-next.config");
-} catch (e) {
-  // ignore error
-}
+const userConfig = (() => {
+  try {
+    return require("./v0-user-next.config");
+  } catch (e) {
+    return undefined;
+  }
+})();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export", // Export statique pour GitHub Pages
+  basePath: "/sejouris", // 🔹 Nom du repo GitHub
+  assetPrefix: "/sejouris/", // 🔹 Assure que les assets sont bien chargés
   eslint: {
     ignoreDuringBuilds: true,
   },
